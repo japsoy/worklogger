@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <script>
+        !function(e){"use strict";var n=function(n,t,i){function o(e){return r.body?e():void setTimeout(function(){o(e)})}var d,r=e.document,a=r.createElement("link"),l=i||"all";if(t)d=t;else{var f=(r.body||r.getElementsByTagName("head")[0]).childNodes;d=f[f.length-1]}var s=r.styleSheets;a.rel="stylesheet",a.href=n,a.media="only x",o(function(){d.parentNode.insertBefore(a,t?d:d.nextSibling)});var u=function(e){for(var n=a.href,t=s.length;t--;)if(s[t].href===n)return e();setTimeout(function(){u(e)})};return a.addEventListener&&a.addEventListener("load",function(){this.media=l}),a.onloadcssdefined=u,u(function(){a.media!==l&&(a.media=l)}),a};"undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this);
+    </script>
+    <link rel="stylesheet" href="{% static 'css/opensans.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/sweet-alert/sweet-alert.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'js/plugins/select2/select2.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/toastr/toastr.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap-daterangepicker/daterangepicker.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'js/plugins/bootstrap-select/bootstrap-select.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/iCheck/custom.css' %}" type="text/css" />
+
+    <script>
+    String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
+    };
+    </script>
+    <script type="text/javascript" src="{% static 'js/jquery-2.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/inspinia.js' %}"></script>
+    <!-- <script src="{% static 'js/plugins/peity/jquery.peity.min.js' %}"></script> -->
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/dataTables/dataTables.bootstrap.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/plugins/dataTables/dataTables.responsive.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}" type="text/css" />
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAIAEBAAAAAAIABoBAAAJgAAACAgAAAAACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAA////Af///wH///8B////Af///wGtmnMRdl8xQXliM1l5YjNXd2AxOaGMYwn///8B////Af///wH///8B////Af///wH///8B////AXdfLgVzWythrZlyz3ZfMPd5YjP/eWIz/3ZfMPOrmHC/dl4vRf///wH///8B////Af///wH///8B////AWpQHRV3YDC3emM0/7Ogev92XzD/eWIz/3liM/92XzD/rJpx/3VeLv14YTOTc1spB////wH///8B////AcrAsgl2XzLBjnlO/7Ged/9+aDn/dl8w/3ZfMP93YTH/dFwt/6SQZ/+Xglj/emM0/3RcLJX///8B////Af///wGSgFt5l4JX/6CMY/93YDH/eGEy/6aRav++rYj/vauG/7qohP+NeEz/moZc/6WSav+SflL9clgoR////wHQyLklfWc65aaTa/96YzX/d18w/7ingf+dimH/d2Ax/3VeL/98Zjj/v66J/4hyRv+hjGT/hnBC/31nO7+qmocLi3lSY3xlN/+nk2z/lH5U/5B6T/+unHT/dl4v/3ZeL/93YDH/d2Aw/62acv+KdEj/dl8w/3liM/96ZDbzn49yOXhhM3F6YzX/oY1k/4p1SP+smXL/jHZL/3tjNf+jj2f/mYVb/4x2Sf+3pX//m4dd/414S/+OeUz/jXhM/496T1d5YjNveGEy/3NcLP91Xi3/rZpz/4t2Sv97ZTb/o5Bn/56KYP+RfFH/kHtQ/5F9Uv+SfVL/kX1S/5J8Uf+Re09ZhG5DaYRuQP+lkWn/f2k7/5R/VP+rmXD/dl4v/3ZfMP93YDH/eWIz/3pjNP97ZTb/eGEy/3liM/94YjT3mYdoQb+0oDONeU7vo5Bo/6yZcv92Xy//vKuG/5iDWf92Xy//dV4u/3liM/+mkmr/o49m/3lhMv92Xy//nYhhz8m9rxH7+fgDj3tUl3VdLv+Fb0L/s6B6/4ZwQ/+rmXL/v66J/7uqhf++rIf/oY1k/5WAVf99Zjn/sZ53/6qXcWP///8B////AdHJuRV5YzXfeGIy/3hgMf+wnnf/fGU3/3hhMv96YzT/dl8w/3VeLv+RfFH/r5x1/3tlNrljRwwF////Af///wH///8Bd2AzKXdgMN93YDH/noph/4FrPf95YjP/eWIz/3liM/+EbkD/qZZu/3RcLMF0XCsV////Af///wH///8B////Af///wF1Xi4Vd18wlaCMY++Baz3/eWIz/3liM/95YjP/hG5B46aTanl1Xi4J////Af///wH///8B////Af///wH///8B////AXZeLgOrmHEzgGo8aXliM295YjNxeWIzY31mOCX///8B////Af///wH///8B////AQAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8oAAAAIAAAAEAAAAABACAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAA////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BrZpyC66adDd0XC1teWI0mXliM7F5YjOxeWIzs3liM6t5YjSJdF0tV6CLYiO7qYMD////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////AXFaKSOtmXJ7rpp0w3RcLeV5YjP3eWIz/3liM/95YjP/eWIz/XliM/F0XS3dn4thp7upg1l2Xi8L////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////AXdfLhN4YTF/cVkp5ayYcP+umnT/dFwt/3liM/95YjP/eWIz/3liM/95YjP/eWIz/3RdLf+fi2H/u6mD+3ZeL8F2YDBLeWEyA////wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wFyWig7eWEzw3hgMf9rUyL/rpt0/7KeeP90XC3/eWIz/3liM/95YjP/eWIz/3liM/95YjP/dF0t/5+LYf+7qYP/dl8v/3ZgMPl5YTKPeGEyEf///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BalAdT3liMuN2XzD/cVkp/5WBV//NvZv/n4ti/3RdLf95YjP/eWIz/3liM/95YjP/eWIz/3liM/90XS3/oI1j/7mngP9yWin/eGEy/3liNP95YjOxc1spHf///wH///8B////Af///wH///8B////Af///wH///8B////AZeEakVwVyXtdV0u/3liM/+vnHX/zb2a/52IXv92Xy//eGEy/3liM/94YTL/eGEx/3dgMf93YDH/eGEy/3NcLP+diF7/zLya/4VvQv9xWCn/dl8x/3hhMv92Xi2xbVUjE////wH///8B////Af///wH///8B////Af///wHKwLIhgGpC121VI/+JdUn/w7OP/8Kxi/+HcUT/cFkp/3hhMf93YDD/c1ws/3RcLf93YDH/eWMz/3dhMf90XS3/cVkp/3hhMv+vnHT/zb6b/5qEW/96YzT/gGo8/3hgMf9vViaP////Af///wH///8B////Af///wH///8B7evnA6SUdKNuVSP/nYlg/829m/+smXH/d2Ey/3RdLf95YjP/dFwt/3ZeMP+Qek//r5x0/8Cuiv/EtJD/wLCK/7Kfev+Xgln/d2Ey/2tUIv+Yg1r/yrmV/7qphP+1o33/moZb/3VeL/lsURxJ////Af///wH///8B////Af///wHZ08dJclor+YVvQv/NvJr/m4Vc/29XJ/93XzH/emM0/3NbK/+Baz7/uaaB/9nJqP/Qv5z/vKuG/7Wjff+7qIL/ybiW/9jJqP/GtZH/j3lO/2ZOHf+jj2f/p5Rs/4BpO/+6qIP/gWw+/3NaKsWMdVUN////Af///wH///8B7erlJ6aXeLFpUBz/i3ZK/8KwjP9/aTv/dF0t/3pjNP90Wyz/hW9C/8i4lf/WyKb/o49n/35nOv91Xi7/dF0t/3VdLv97ZTb/lIBV/8q5lf/Tw6H/i3VJ/4RuQf+zoXn/rJdw/6uYcP95YjP/dl8u/5F8XVmhjngF////Af///wHHvapvhnFJ521UIv+Ic0b/xbSQ/4NsP/90XS3/dV4u/3liM/+/ron/1cek/455Tv9wWCn/dF0u/3ZfMP93YDH/d2Aw/3VeL/9uVib/inRH/9jIp/+lkWn/b1cm/4x2Sv+chV3/fmc4/3ZfL/91Xi3/jHhTqayciSP///8B////AZqKaLN7YzX/dF0t/6KOZv/Lupj/nohg/3VeL/9xWSn/nIde/9zMq/+diV//cFgo/3liMv95YjP/eGEy/3liM/95YjP/eWIz/3VeLf+GcEP/1MOg/6KPZv9yWiv/dF0u/3RcLf93YDH/eWIz/3ZeLv+CbUTdqJmCV////wH///8BgGtA2XZeL/+OeEz/s6B7/3xkN/+2pH//h3BE/3RcLv/ArYn/yLiU/3pjNP93YDD/eGEy/3NcLP90XC3/c1ws/3liM/96YzT/dl8u/4lzRv/TxKH/oo9m/3NbLP95YjP/emM0/3pjNP96YzT/d2Aw/35nOfGaiWiJ////Af///wF4YTPhdl8v/4ZwRP+0oXz/nYpg/7She/9+Zzn/gGo9/9HBn/+smnP/c1or/3hgMf91Xi//lIBV/7GeeP+RfFD/b1go/3FaKv9uViT/gWs+/9PDov+fi2H/a1Ii/3FaKf9yWyr/clsq/3JbKv9yWir/clor/XdhNK3///8B////AXliM995YjP/dl4v/413S/+nlGz/iXRH/3BYKP+Ldkn/1MWj/6CMY/9yWyv/dFws/4t1SP+1o33/knxS/7imgP+unHX/qJVs/6mVbf+xnnf/18il/76tiP+mk2r/qpdu/6qXbv+ql27/qpdu/6mXb/+plW7/p5Nqsf///wH///8BeWIz33liM/95YjP/dV4u/3RcLf92Xi//dFwr/4t2Sv/VxaP/oIxi/3JbK/9zXCz/jXhM/7Wjff+JdEf/uaeB/7elgP+wnXb/sp95/7Ged/+smXL/r512/7Ggev+yn3n/sZ94/7Gfef+xn3j/sZ94/7GeeP+vm3Sx////Af///wF5YjPfeGIz/3ZfMP9zXCz/c1sr/3dgMP91Xi3/hG5B/9LCoP+qmHD/clsr/3dgMf92YC//moZb/7ajfv+Xglj/cVoq/3JaK/9zWyz/c1ss/3NbLf9zXC3/c1ss/3NbLP9zWyz/c1ss/3JbLP9zWyv/c1sr/3NbK7H///8B////AX1nOd93YDD/fWY4/6aTa/+jj2X/e2U1/3RdLf95YjP/w7KO/8S0j/94YjL/d2Ax/3hhMv90XS3/d2Ax/3RdLf94YTL/eWIz/3liM/95YjP/d2Aw/3VeLv94YTL/eWIz/3liM/95YjP/eWIz/3dgMf98ZTf3kX5amf///wH///8BjHdQx3ZfL/+nk2r/pJBo/6iVbP+eimD/clsr/3JaKv+ijmX/28yr/5WCVv9wWCf/eWIz/3liM/93YDH/eWIz/3liM/95YjP/eWIz/3VeL/+DbD//inVI/3dgMf94YTL/eWIz/3liM/95YjP/dF0t/3xnPOellXxt////Af///wGxo4qLfGc586yYcP+VgFb/nIhg/72qhv94YTL/blcm/31mOP/GtpP/0MGe/4dwQ/9wWSj/dV4v/3hhMf94YTL/eGEy/3dgMP9wWCj/hW5B/7WjfP+4pX//nolg/3ZfL/95YjP/emMz/3VeLv9xWCf/m4dlw8K1pjf///8B////AeDb0UGUgl7NfGU0/7GfeP+tm3T/wbCL/72sh/+Fb0H/alIg/4p1SP/Swp//0sGf/5iEW/96YjP/c1wr/3JbKv9zXCz/d2Aw/4lyRv/CsY3/nYlf/35oOf+5poH/fmY4/3dgMf9xWin/eWIz/6uWbv/h1b976+XaDf///wH///8B+/n4C8W7p3VuVCL/d2Ax/3VeLv98Zjf/s6F6/8y8mf+ZhVr/a1Mh/4dxRP/EtJD/2syq/8i4k/+yoHn/qZdv/6+cdv/Ar4r/1sWk/829mv+xn3j/s6F6/5+LYv92Xi//b1co/4hxRv/BsIv/xLSR57mpkSX///8B////Af///wH///8B9fPvFZB8VtFwVyb/eGEz/3RdLf9yWyv/moZc/828mv+yoXn/dF0u/3ZgMf+bh13/u6mE/8m5lf/Nvpr/yrqX/7+tiP+kkGf/gWo8/4VvQv+PeEz/dFwt/3JaK/+gi2L/z76b/62Zcv93Xi5/////Af///wH///8B////Af///wH///8B0cm5T3dgMf14YDH/eWM0/3hhMP9xWSj/hG1A/7+tiP/BsIz/fWY5/3BYKP92XjD/fGU2/39pOv98Zjf/d18x/3NcLP91Xi3/dF0s/21UI/9/aDr/uqiC/8q5lv+VgFb/bVUjxWNHDBP///8B////Af///wH///8B////Af///wH///8Bj3xag3RdLP95YzP/eWIz/3pjNP9yWir/fGU3/8e3lP+RfFD/c1wt/3lhMv93YDH/d2Ax/3dgMf94YTL/eWIz/3hhMv91Xi7/kXxR/8m4lv+5p4L/gGo8/3FaKulrUiE5////Af///wH///8B////Af///wH///8B////Af///wGOeVwLdl8xk3hgMP95YjP/eWIz/3ZfL/97ZDb/wK+L/5B6Tv9zXC3/emM0/3liM/95YjP/eWIz/3liM/95YjP/c1ws/495Tf/NvZr/o49n/3NcK/90XS3pdFwrT////wH///8B////Af///wH///8B////Af///wH///8B////Af///wFzWi0Hc1srg3liM/t5YjT/dl8v/3xlN//CsYz/kHpO/3NcLf96YzT/eWIz/3liM/95YjP/eWIz/3liM/9yWyv/nYhe/8Cviv90XS7/dF0s1XhgMEX///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BdV4uU3liM892Xy//fGU3/8KxjP+Qek7/c1wt/3pjNP95YjP/eWIz/3liM/95YjP/eWIz/3JbK/+ahVv/vKyG93pjNKF1Xi4f////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8BeGAvE3ZeL3V8ZjfNwrGM8ZB6Tv9zXC3/emM0/3liM/95YjP/eWIz/3liM/95YjP/clsr5ZmGW62+rIdL////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8Bdl4uC3xkN0HCsYyLkHpOx3NcLd16YzTfeWIz33liM995YjPheWIz2XliM7FzWyxtmoZbJ////wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////Af///wH///8B////AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="image/x-icon" >
+    <style type="text/css">
+        .nav-second-level { width: 200px; }
+    </style>
+
+    {% block css_import %}
+    {% endblock %}
+
+</head>
+
+<body class="mini-navbar">
+    <!-- START Wrapper -->
+    <div id="wrapper">
+      {% include 'navbar_side.html' %}
+          <!-- START Page Wrapper -->
+          <div id="page-wrapper" class="gray-bg">
+              {% include 'navbar_top.html' %}
+              <div class="row wrapper border-bottom white-bg page-heading">
+                  <div class="col-xs-5">
+                      <!-- Insert title here -->
+                      <h2 id="page-title">{{request.title}}</h2>
+                      <ol class="breadcrumb">
+                      </ol>
+                  </div>
+                  <div class="col-xs-7">
+
+                  </div>
+              </div>
+              <div class="row">
+                  <div id="content-column" class="col-xs-12">
+                      <div class="wrapper wrapper-content animated fadeInRight">
+                          {% block content %}{% endblock %}
+                      </div>
+                      <br>
+                  </div>
+              </div>
+              <div class="modal fade" id="div_loader" data-keyboard="false" data-backdrop="static">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-body text-center">
+                              <h3><div class="sk-spinner sk-spinner-rotating-plane"></div> Please wait...</h3>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <a href="#" class="scroll scrollup" title="Back to Top" data-toggle="tooltip" data-placement="top"><i class="fa fa-chevron-up"></i></a>
+              <a href="#" class="scroll scrolldown" title="Scroll to Bottom" data-toggle="tooltip" data-placement="top"><i class="fa fa-chevron-down"></i></a>
+              <!-- START Footer -->
+              <div class="footer">
+                  <div class="pull-right server-stats">
+                      10GB of <strong>250GB</strong> Free.
+                  </div>
+                  <div>
+                      <strong>Copyright</strong> Example Company &copy; 2014-2015
+                  </div>
+              </div>
+              <!-- END Footer -->
+          </div><!-- END Page Wrapper -->
+      </div> <!--END Wrapper-->
+</body>
+
+<!-- Mainly scripts -->
+<script type="text/javascript" src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/sweet-alert/sweet-alert.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/jquery-cookie/jquery.cookie.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/select2/select2.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/bootbox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/validate/jquery.validate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/dataTables/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/dataTables/dataTables.bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/dataTables/dataTables.responsive.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fontfaceobserver.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/bootstrap-select/bootstrap-select.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/bootstrap-daterangepicker/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/livestamp.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins/iCheck/icheck.min.js' %}"></script>
+
+<!-- LOAD SPECIFIC js for the page -->
+{% block js_module %}
+{% endblock %}
+
+<script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+
+</html>
