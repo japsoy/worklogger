@@ -1,0 +1,243 @@
+body {
+    height: auto;
+    font-size: 12px;
+    line-height: 1;
+}
+
+#page-wrapper {
+    background-color: #CCC;
+    height: 400px;
+}
+
+#div_loader > .modal-dialog {
+    margin-top: 20%;
+}
+
+/* Offset wrapper with fixed top navbar */
+.fixed-nav #wrapper {
+    margin-top: 50px;
+}
+
+/* Smaller top navbar */
+.navbar-fixed-top {
+    height: 50px;
+}
+
+/* Top navbar forms, etc */
+.navbar-header {
+    min-width: 690px;
+}
+
+.navbar-form-element {
+    display: inline;
+    position: relative;
+    top: 10px;
+    margin-left: 10px;
+}
+
+.navbar-form-element > select {
+    display: inline;
+    padding: 0;
+    max-width: 120px;
+    margin-left: 5px;
+}
+
+.navbar-top-links li a {
+    padding: 20px 5px;
+}
+
+.navbar-top-links .fa-sign-out {
+    margin-right: 2px;
+}
+
+/* Smaller sidebar, elements */
+#sidenav {
+    width: 120px;
+}
+
+@media (min-width: 768px) {
+    #page-wrapper {
+        margin: 0 0 0 120px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-header {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #page-wrapper {
+        margin: 0 0 0 0px;
+        min-height: 1px !important;
+        height: 100% !important;
+    }
+
+    #preview_wrapper {
+        margin-bottom: 45px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .navbar-form-element {
+        margin-left: 0;
+    }
+
+    .navbar-form-element > select {
+        max-width: 100px;
+    }
+
+    .navbar-right > li {
+        left: 15px;
+    }
+
+    .navbar-top-links li:last-child {
+        margin-right: 0;
+    }
+}
+
+.panel-right > .panel-body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.panel-right > .panel-body > .tab-content > .tab-pane > .btn-group {
+    position: absolute;
+    top: 40px;
+    padding-right: 32px;
+    z-index: 2000;
+}
+
+/* Removed excess padding in tabs inside panel-headings */
+.panel-tabs {
+    padding: 5px 0 0 10px;
+}
+
+.panel-tabs > .nav-tabs {
+    border-bottom: none;
+}
+
+.nav_options > li > a {
+    padding: 8px 13px 8px 16px;
+}
+
+/* Smaller margin between panels */
+.panel-default {
+    margin-bottom: 5px;
+}
+
+/* Collapse button positioning */
+.panel-collapse span {
+    position: relative;
+    top: -7px;
+}
+
+/* Iframe styling */
+#preview_wrapper .panel-body {
+    padding: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.m-18t {
+    margin-top: 18%;
+}
+
+/* Footer utility */
+.footer {
+    min-height: 40px;
+}
+
+/* Elements list tab */
+li.element > a {
+    color: #555;
+    background-color: #fff;
+    padding: 10px 10px;
+    border-bottom: 0.5px solid #555;
+}
+
+li.element > a:focus {
+    background-color: #fff;
+}
+
+li.element > a:hover {
+    color: #eee;
+    background-color: #bbb;
+    border-right: 16px solid #f8ac59;
+}
+
+li.element.active {
+    border-left: none;
+}
+
+li.element.active > a {
+    color: #555;
+    background-color: #fff;
+}
+
+li.element.active > a:hover {
+    color: #eee;
+    background-color: #bbb;
+}
+
+li.element.active.selected > a {
+    color: #fff;
+    background-color: #888;
+    border-right: 16px solid #19aa8d;
+}
+
+li.element.active.selected > ul a {
+    color: #888;
+    background-color: #ddd;
+}
+
+li.element.active.selected > ul a:focus {
+    background-color: #ddd;
+}
+
+li.element.active.selected > ul a:hover {
+    color: #eee;
+    background-color: #bbb;
+}
+
+li.element .fa {
+    font-size: 18px;
+}
+
+li.element > a > .trigger_element_delete {
+    position: absolute;
+    right: 26px;
+}
+
+li.element > a:hover > .trigger_element_delete {
+    right: 10px;
+}
+
+li.element.active.selected > a > .trigger_element_delete {
+    right: 10px;
+}
+
+/* Utility classes for block attributes */
+.c-p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.c-p > .form-group {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.select2-container {
+    width: 100%;
+}
+
+.form-group > .well-sm {
+    font-size: 14px;
+}
